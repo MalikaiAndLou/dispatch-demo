@@ -1,0 +1,4 @@
+﻿Zone_Code__c,Name,High_Crime__c,Use_DTMF__c,Active__c
+MB-03,Mission Bay North,true,false,true
+MB-07,Mission Bay South,false,false,true
+PN-01,Parnassus Main,false,true,true

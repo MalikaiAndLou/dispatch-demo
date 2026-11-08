@@ -1,0 +1,13 @@
+﻿Station_ID__c,Station_Class__c,Status__c,Building__c,Zone_Code__c,DNIS__c,DTMF_Code__c,Camera_ID__c,Nearest_Entrance__c,Health_Status__c
+MB-GH-BL01,S1 Voice Tower,In Service,MB-GH,MB-03,4155550101,,,North lobby,GREEN
+MB-GH-BL02,S2 Silent Tower,In Service,MB-GH,MB-03,4155550102,,,West stair,GREEN
+MB-GH-VS01,S3 Video Station,In Service,MB-GH,MB-03,4155550103,,CAM-MB-114N,Loading dock,GREEN
+MB-BY-BL01,S1 Voice Tower,In Service,MB-BY,MB-03,4155550104,,,South entrance,GREEN
+MB-BY-BL02,S2 Silent Tower,Out of Service,MB-BY,MB-03,4155550105,,,East entrance,RED
+MB-SF-BL01,S1 Voice Tower,In Service,MB-SF,MB-07,4155550106,,,Main lobby,GREEN
+MB-SF-VS01,S3 Video Station,In Service,MB-SF,MB-07,4155550107,,CAM-MB-207S,Service yard,GREEN
+PN-MOF-BL01,S1 Voice Tower,In Service,PN-MOF,PN-01,,0101,,Parnassus lobby,GREEN
+PN-MOF-BL02,S2 Silent Tower,In Service,PN-MOF,PN-01,,0102,,West stair,GREEN
+PN-MOF-PS01,S5 Pull Station,In Service,PN-MOF,PN-01,,0103,,Level 2 core,GREEN
+PN-MOF-EL01,S6 Elevator Phone,In Service,PN-MOF,PN-01,,0104,,Elevator 2,GREEN
+PN-MOF-BL03,S2 Silent Tower,In Service,PN-MOF,PN-01,,0105,,East stair,GREEN
