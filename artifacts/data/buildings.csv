@@ -1,5 +1,5 @@
-﻿Building_Code__c,Name,Campus_Zone__c,Street_Address__c,Floors__c
-MB-GH,Genentech Hall,MB-03,600 16th Street,5
-MB-BY,Byers Hall,MB-03,1700 4th Street,4
-MB-SF,Sandler Neurosciences,MB-07,675 Nelson Rising Lane,6
-PN-MOF,Medical Sciences,PN-01,513 Parnassus Avenue,12
+﻿Name,Campus_Zone__c,Street_Address__c,Floors__c
+MB-GH,MB-03,600 16th Street,5
+MB-BY,MB-03,1700 4th Street,4
+MB-SF,MB-07,675 Nelson Rising Lane,6
+PN-MOF,PN-01,513 Parnassus Avenue,12
