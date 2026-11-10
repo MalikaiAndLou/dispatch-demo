@@ -10,7 +10,7 @@ a mock-up: the routing table, the trigger, the agent and the screen pop all run.
 
 ## Access
 
-Repository: `<repo-url>` — private, you'll need the invite or the link.
+Repository: https://github.com/MalikaiAndLou/dispatch-demo — public.
 
 Start with `docs/build-report.md`. It has the architecture, the component inventory, the
 decisions and an explicit list of what a production system adds that this doesn't.
