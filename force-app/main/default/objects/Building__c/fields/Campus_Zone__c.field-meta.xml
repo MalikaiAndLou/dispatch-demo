@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Campus_Zone__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <label>Campus Zone</label>
+    <referenceTo>Campus_Zone__c</referenceTo>
+    <relationshipLabel>Building Codes</relationshipLabel>
+    <relationshipName>Building_Codes</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

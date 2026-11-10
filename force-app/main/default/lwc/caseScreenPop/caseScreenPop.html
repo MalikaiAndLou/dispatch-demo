@@ -1,0 +1,49 @@
+<template>
+    <template if:true={panel}>
+        <article class="pop">
+            <header class="head">
+                <div>
+                    <div class="station">{panel.stationCode}</div>
+                    <div class="sub">{panel.stationClass} · {panel.buildingName} · zone {panel.zoneCode}</div>
+                </div>
+                <div class={badgeClass}>{panel.healthStatus}</div>
+            </header>
+
+            <template if:true={hasStation}>
+                <section class="cam">
+                    <div class="cam-id">{panel.cameraId}</div>
+                    <div class="cam-overlay" if:true={isDown}>NO SIGNAL</div>
+                    <div class="cam-foot">Nearest entrance: {panel.nearestEntrance}</div>
+                </section>
+            </template>
+
+            <template if:false={hasStation}>
+                <section class="decision">
+                    <div class="label">No station resolved</div>
+                    <div class="value">{routed}</div>
+                    <div class="meta">
+                        <span class="pill">{panel.priority}</span>
+                        <span if:true={panel.anonymous} class="pill">Anonymous</span>
+                    </div>
+                </section>
+            </template>
+
+            <template if:true={hasStation}>
+                <section class="decision">
+                    <div class="label">Routing decision</div>
+                    <div class="value">{routed}</div>
+                    <div class="meta">
+                        <span class="pill">{panel.priority}</span>
+                        <span if:true={panel.anonymous} class="pill">Anonymous</span>
+                        <span if:true={panel.containsPhi} class="pill">PHI</span>
+                        <span if:true={hasScore} class="pill">Score {panel.score}</span>
+                    </div>
+                </section>
+            </template>
+        </article>
+    </template>
+
+    <template if:true={error}>
+        <div class="pop">Panel unavailable</div>
+    </template>
+</template>
