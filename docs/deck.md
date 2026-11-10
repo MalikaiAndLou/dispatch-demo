@@ -97,7 +97,6 @@ their PoC is weeks, not quarters. -->
 
 ## Architecture
 
-
 ![w:1080](img/arch.svg)
 
 <!-- Speaker notes: three doors, one router. The router is the only place that decides
@@ -120,31 +119,19 @@ because there's only one silent device class in the build. -->
 
 ---
 
-## Routing is data
+## The screen pop
 
-- Eight rows of intent + zone → queue + priority
-- Exact match, then the DEFAULT row per intent, then NO ROUTE
-- Changing a destination is a metadata edit, no deployment
-- Demoed live: ASSAULT/MB-03 moved to another queue, the Case rerouted
+- Station, class, building, zone, health badge
+- Camera tile, blacked out with NO SIGNAL when the station is down
+- The rule that fired, priority, privacy flags
+- Empty state when no station resolved
+
+![w:520](img/panel-silent.png) ![w:520](img/panel-voice.png)
 
 <!--
-This is the slide a facilities stakeholder cares about most. They can remap without a
-release. Say that word — release — because it's the thing they're afraid of.
+A dead camera has to be visible at dispatch, not discovered later. The badge is the
+feature. Point at the NO SIGNAL tile as you say it.
 -->
-
----
-
-## The agent
-
-- Agentforce Service Agent, one subagent, one action
-- Classifies free text into five intents, collects location and injury
-- Creates and routes the Case, reads the number back
-- Messaging today; the same topic takes ASR output when Connect lands
-![h:330](img/agent.png)
-
-<!-- Speaker notes: be explicit that it's messaging, not voice. The classifier is the piece
-that makes the voice leg possible later. -->
-
 ---
 
 ## The screen pop
@@ -174,6 +161,47 @@ feature. Point at the NO SIGNAL tile as you say it.
 human, so intent is inferred. Voice has a human, so intent is captured. Same router,
 same table, two very different information problems. -->
 
+---
+
+## The agent
+
+- Agentforce Service Agent, one subagent, one action
+- Classifies free text into five intents, collects location and injury
+- Creates and routes the Case, reads the number back
+- Messaging today; the same topic takes ASR output when Connect lands
+![h:330](img/agent.png)
+
+<!-- Speaker notes: be explicit that it's messaging, not voice. The classifier is the piece
+that makes the voice leg possible later. -->
+
+---
+
+## Where this goes: one front door
+
+- The agent takes every channel — voice, SMS, chat, alarm, email
+- Triage happens once, at the door, before any queue exists
+- Emergency → the new dispatch path: Case, router, table, escalation
+- Non-emergency → the existing process, unchanged
+- One classifier, one audit trail, no parallel front doors
+
+<!-- Speaker notes: this is the additive argument. Their PoC keeps the non-emergency
+traffic it already handles. Emergencies get a hardened path. The agent is the front door,
+not a bolt-on beside it. Say plainly that triage-at-the-door is the design goal, not
+something built today — today's agent does emergency intake only. -->
+
+---
+
+## Routing is data
+
+- Eight rows of intent + zone → queue + priority
+- Exact match, then the DEFAULT row per intent, then NO ROUTE
+- Changing a destination is a metadata edit, no deployment
+- Demoed live: ASSAULT/MB-03 moved to another queue, the Case rerouted
+
+<!--
+This is the slide a facilities stakeholder cares about most. They can remap without a
+release. Say that word — release — because it's the thing they're afraid of.
+-->
 ---
 
 ## Escalation and 911
