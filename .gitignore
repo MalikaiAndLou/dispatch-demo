@@ -1,5 +1,6 @@
-﻿.DS_Store
-*.log
-node_modules/
-.sfdx/
 .sf/
+.sfdx/
+.sfdx-tooling/
+node_modules/
+*.log
+.DS_Store
