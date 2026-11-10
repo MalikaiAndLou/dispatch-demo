@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 460" font-family="Segoe UI, sans-serif">
+  <rect width="1500" height="460" fill="#ffffff"/>
+  <g fill="#16325c" font-size="22">
+    <rect x="30" y="60" width="240" height="60" rx="6" fill="#eef2f7"/>
+    <text x="60" y="98" fill="#16325c">Voice call</text>
+    <rect x="30" y="200" width="240" height="60" rx="6" fill="#eef2f7"/>
+    <text x="60" y="238" fill="#16325c">Silent alarm</text>
+    <rect x="30" y="340" width="240" height="60" rx="6" fill="#eef2f7"/>
+    <text x="60" y="378" fill="#16325c">Agent text</text>
+  </g>
+  <g stroke="#16325c" stroke-width="3" fill="none">
+    <path d="M270 90 H315 V230 H360"/>
+    <path d="M270 230 H360"/>
+    <path d="M270 370 H315 V230 H360"/>
+  </g>
+  <rect x="360" y="180" width="220" height="100" rx="6" fill="#16325c"/>
+  <text x="400" y="238" fill="#ffffff" font-size="24">CaseRouter</text>
+  <path d="M580 230 H680" stroke="#16325c" stroke-width="3"/>
+  <rect x="680" y="180" width="260" height="100" rx="6" fill="#c23934"/>
+  <text x="710" y="225" fill="#ffffff" font-size="21">Routing_Map__mdt</text>
+  <text x="710" y="253" fill="#ffd9d7" font-size="16">intent + zone</text>
+  <path d="M940 230 H1040" stroke="#16325c" stroke-width="3"/>
+  <rect x="1040" y="180" width="200" height="100" rx="6" fill="#eef2f7"/>
+  <text x="1060" y="225" fill="#16325c" font-size="21">Queue</text>
+  <text x="1060" y="253" fill="#54698d" font-size="16">+ priority</text>
+  <path d="M1240 230 H1330" stroke="#16325c" stroke-width="3"/>
+  <rect x="1330" y="180" width="140" height="100" rx="6" fill="#eef2f7"/>
+  <text x="1352" y="238" fill="#16325c" font-size="21">Screen pop</text>
+  <path d="M810 280 V330 H1140 V280" stroke="#54698d" stroke-width="2" stroke-dasharray="6 5" fill="none"/>
+  <text x="830" y="356" fill="#54698d" font-size="16">DEFAULT row per intent, or NO ROUTE</text>
+</svg>

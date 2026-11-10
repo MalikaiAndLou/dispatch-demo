@@ -1,6 +1,9 @@
-﻿{
+{
   "files.defaultLanguage": "markdown",
   "markdown.preview.breaks": true,
   "editor.wordWrap": "on",
-  "files.trimTrailingWhitespace": true
+  "files.trimTrailingWhitespace": true,
+  "cSpell.words": [
+    "marp"
+  ]
 }
