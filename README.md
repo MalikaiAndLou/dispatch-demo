@@ -1,24 +1,13 @@
-﻿# Dispatch demo — dev org
+﻿# dispatch-demo
 
-Working repo for the Agentforce emergency-triage demo.
+Proof of concept: campus emergency dispatch triage in Salesforce.
 
-## Layout
+Two entry points — simulated voice call and silent alarm — plus an Agentforce agent,
+all feeding one metadata-driven routing engine and one dispatcher screen pop.
 
-| Path | Contents |
-|---|---|
-| `journal/` | Numbered entries. Chronological, append-only |
-| `build/` | One file per build step |
-| `artifacts/` | Apex, Flow definitions, metadata rows |
-| `demo/` | Script and caveat list |
+See `docs/build-report.md` for the architecture, component inventory, decisions and
+known gaps.
 
-## Journal rules
+See `journal/` for the build log, in order, including the misfires.
 
-1. One file per entry. `NNNN-short-slug.md`. Never renumber.
-2. Front matter required — date, phase, type.
-3. Record decisions, cuts, surprises, reversals. Not narration of clicks.
-4. Corrections get a new entry referencing the old one.
-5. Every cut gets a reason and what would bring it back.
-
-## Status
-
-Step 1 of 8.
+Read the journal in numeric order. It is honest.
