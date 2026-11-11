@@ -2,15 +2,15 @@
 
 ## Note
 
-The technical interview is where a candidate describes work. This puts the work in front
-of you first, so the interview can be about the decisions rather than the pitch.
+The technical interview is where a candidate describes work. This puts the work in front of
+you first, so the interview can be about the decisions rather than the pitch.
 
-Two days, one Developer Edition org, and a journal of every wrong turn. Nothing here is
-a mock-up: the routing table, the trigger, the agent and the screen pop all run.
+Two days, one Developer Edition org, and a journal of every wrong turn. Nothing here is a
+mock-up: the routing table, the trigger, the agent and the screen pop all run.
 
 ## Access
 
-Repository: https://github.com/MalikaiAndLou/dispatch-demo — public.
+Repository: https://github.com/MalikaiAndLou/dispatch-demo — public, no invite needed.
 
 Start with `docs/build-report.md`. It has the architecture, the component inventory, the
 decisions and an explicit list of what a production system adds that this doesn't.
@@ -21,43 +21,50 @@ journal is the part that shows how the work actually goes.
 
 ## Recording
 
-`<recording-link>` — ten minutes, no editing. It runs the silent alarm path, the voice
-path, the agent, a live routing change with no deployment, and the escalation timer.
+https://1drv.ms/v/c/b005b7016cab663b/IQC7h3d9hIePQY33Ek4YQhRgAY-iEvIgTAVm4eVKk_gPM3c?e=by3dHl
+
+Fourteen minutes, no editing, one take. It runs the silent alarm path, the voice path, the
+agent, a live routing change with no deployment, and the escalation timer.
 
 ## Walkthrough
 
-| Time | What you'll see |
+Timestamps are approximate; scrub if one lands a few seconds early.
+
+| Time | Beat |
 |---|---|
-| 0:00 | The problem, and why it's additive to your PoC |
-| 1:00 | Three entry points, one router |
-| 1:40 | Silent alarm: RED panel, NO SIGNAL, Duress at P0 |
-| 3:00 | Voice call: DNIS resolves the station, routes on FIRE / MB-03 |
-| 4:20 | The agent: free text classified, Case created and routed |
-| 6:00 | Metadata edit, live: ASSAULT/MB-03 moved, reroutes with no deploy |
-| 7:20 | Escalation: unclaimed P0 re-owned after two minutes |
-| 8:00 | Ten test methods, all passing |
-| 8:40 | What broke and what it taught |
+| 0:00 | The problem, and what an emergency line has to survive |
+| 1:25 | Where a PoC stops and go-live begins |
+| 2:55 | Silent alarm, live: duress button, RED panel, P0 in Duress |
+| 4:40 | The screen pop, and why the badge is on the record |
+| 5:40 | Voice call, live: DNIS resolves the building |
+| 7:00 | The agent, live: free text to routed Case |
+| 8:40 | The agent as a single front door for every channel |
+| 9:20 | Live metadata edit — Case rerouted with no deployment |
+| 11:00 | Escalation: unclaimed P0 re-owned after two minutes |
+| 11:50 | Ten test methods, all passing |
+| 12:40 | What broke, and what it taught |
+| 13:15 | Rollout order, and what I'd need from you |
 
 ## What is real, what is simulated
 
-Real: routing, the metadata table and its fallback, the trigger, the agent and its
-action, the screen pop, the escalation path, the tests.
+Real: routing, the metadata table and its fallback, the trigger, the agent and its action,
+the screen pop, the escalation path, the tests.
 
-Simulated: telephony. There is no Amazon Connect and no PSTN in this org, so the voice
-leg is a Screen Flow and the agent is demonstrated over messaging. `docs/build-report.md`
+Simulated: telephony. There is no Amazon Connect and no PSTN in this org, so the voice leg
+is a Screen Flow and the agent is demonstrated over messaging. `docs/build-report.md`
 section 9 lists every remaining gap — Omni-Channel presence, audible alerting,
 accept/decline, supervisor tools, 911 egress.
 
 ## Live demo
 
-Available if you want it. I'd rather run it live than have you take the recording's word
-for it, and you can pick the scenario.
+Available if you want it. I'd rather run it live than have you take the recording's word for
+it, and you can pick the scenario.
 
 ## What I'd want to know
 
 - What the existing PoC already does, so this doesn't duplicate it
 - The queue and skill model dispatch actually uses
 - Whether 911 bridging is in scope or a later phase
-- Who holds the on-call rota
+- Who holds the on-call rotation
 
 Daniel Cadwell
