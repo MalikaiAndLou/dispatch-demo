@@ -10,14 +10,13 @@ mock-up: the routing table, the trigger, the agent and the screen pop all run.
 
 ## Access
 
-Repository: https://github.com/MalikaiAndLou/dispatch-demo — public, no invite needed.
+Repository: https://github.com/MalikaiAndLou/dispatch-demo — public, no invite needed. The demo-freeze tag marks the commit before the review pass; git diff demo-freeze..HEAD is the change.
 
 Start with `docs/build-report.md`. It has the architecture, the component inventory, the
 decisions and an explicit list of what a production system adds that this doesn't.
 
 Then read `journal/` in numeric order. It is honest. Journal 0011 is two hours lost to a
-17-character queue ID; 0018 is three hours on an agent action that never invoked. The
-journal is the part that shows how the work actually goes.
+17-character queue ID; 0018 is three hours on an agent action that never invoked. 0022 is the self-review pass: four SOQL per record, the arithmetic, the fix. The journal is the part that shows how the work actually goes.
 
 ## Recording
 
