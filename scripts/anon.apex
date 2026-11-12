@@ -1,0 +1,1 @@
+List<VoiceCallIntake.Request> q = new List<VoiceCallIntake.Request>(); VoiceCallIntake.Request r = new VoiceCallIntake.Request(); r.dnis = '4155550103'; r.intent = 'FIRE'; r.injured = false; q.add(r); List<VoiceCallIntake.Response> o = VoiceCallIntake.create(q); System.debug('MSG=' + o[0].message); System.debug('NUM=' + o[0].caseNumber);
