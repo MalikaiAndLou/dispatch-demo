@@ -5,7 +5,7 @@ private class CaseRouterTest {
         Case c = new Case(Subject = 'fire', Emergency_Type__c = 'FIRE', Station_ID__c = s.Id);
         insert c;
         Case r = [SELECT Priority, Routing_Decision__c, Routed_Timestamp__c FROM Case WHERE Id = :c.Id];
-        System.assertEquals('FIRE / MB-03', r.Routing_Decision__c);
+        System.assertEquals('FIRE / MB-03 / exact', r.Routing_Decision__c);
         System.assertNotEquals(null, r.Routed_Timestamp__c);
     }
 
@@ -13,6 +13,6 @@ private class CaseRouterTest {
         Case c = new Case(Subject = 'fire no station', Emergency_Type__c = 'FIRE');
         insert c;
         Case r = [SELECT Routing_Decision__c FROM Case WHERE Id = :c.Id];
-        System.assertEquals('FIRE / DEFAULT', r.Routing_Decision__c);
+        System.assertEquals('FIRE / DEFAULT / fallback', r.Routing_Decision__c);
     }
 }
