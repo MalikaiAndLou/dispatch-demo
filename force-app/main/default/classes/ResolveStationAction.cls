@@ -1,5 +1,4 @@
 public with sharing class ResolveStationAction {
-
     public class ResolveIn {
         @InvocableVariable public String dnis;
         @InvocableVariable public String dtmf;
@@ -19,17 +18,25 @@ public with sharing class ResolveStationAction {
     @InvocableMethod(label='Resolve Station')
     public static List<ResolveOut> run(List<ResolveIn> reqs) {
         List<ResolveOut> outs = new List<ResolveOut>();
+        if (reqs == null || reqs.isEmpty()) return outs;
+
+        List<StationResolver.Input> inputs = new List<StationResolver.Input>();
         for (ResolveIn req : reqs) {
-            StationResolver.Result r = StationResolver.resolve(req.dnis, req.dtmf);
+            inputs.add(new StationResolver.Input(req == null ? null : req.dnis, req == null ? null : req.dtmf));
+        }
+        List<StationResolver.Result> results = StationResolver.resolveAll(inputs);
+
+        for (Integer i = 0; i < reqs.size(); i++) {
+            StationResolver.Result r = results[i];
             ResolveOut o = new ResolveOut();
-            o.resolved = r.resolved;
-            o.reason = r.reason;
-            o.stationCode = r.stationCode;
-            o.stationClass = r.stationClass;
-            o.zoneCode = r.zoneCode;
-            o.buildingName = r.buildingName;
-            o.stationId = r.stationId;
-            o.matchedBy = r.matchedBy;
+            o.resolved    = r != null && r.resolved == true;
+            o.reason      = r == null ? 'RESOLVER_NULL' : r.reason;
+            o.stationCode = r == null ? null : r.stationCode;
+            o.stationClass = r == null ? null : r.stationClass;
+            o.zoneCode    = r == null ? null : r.zoneCode;
+            o.buildingName = r == null ? null : r.buildingName;
+            o.stationId   = r == null ? null : r.stationId;
+            o.matchedBy   = r == null ? null : r.matchedBy;
             outs.add(o);
         }
         return outs;
