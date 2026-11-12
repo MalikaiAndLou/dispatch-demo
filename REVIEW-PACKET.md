@@ -10,13 +10,13 @@ mock-up: the routing table, the trigger, the agent and the screen pop all run.
 
 ## Access
 
-Repository: https://github.com/MalikaiAndLou/dispatch-demo — public, no invite needed. The demo-freeze tag marks the commit before the review pass; git diff demo-freeze..HEAD is the change.
+Repository: https://github.com/MalikaiAndLou/dispatch-demo — public, no invite needed. A nine-hour review pass followed the original send on 11-12, after reading the classes back and finding four SOQL per record where one was possible. The demo-freeze tag marks the commit before it; git diff demo-freeze..HEAD is the change.
 
 Start with `docs/build-report.md`. It has the architecture, the component inventory, the
 decisions and an explicit list of what a production system adds that this doesn't.
 
 Then read `journal/` in numeric order. It is honest. Journal 0011 is two hours lost to a
-17-character queue ID; 0018 is three hours on an agent action that never invoked. 0022 is the self-review pass: four SOQL per record, the arithmetic, the fix. The journal is the part that shows how the work actually goes.
+17-character queue ID; 0018 is three hours on an agent action that never invoked. 0022 is the self-review pass from 11-12: four SOQL per record, the arithmetic, the fix. The journal is the part that shows how the work actually goes.
 
 ## Recording
 
@@ -43,6 +43,8 @@ Timestamps are approximate; scrub if one lands a few seconds early.
 | 11:50 | Ten test methods, all passing |
 | 12:40 | What broke, and what it taught |
 | 13:15 | Rollout order, and what I'd need from you |
+
+The recording predates the review pass of 11-12 and says ten tests; the suite is now eighteen. Behaviour on all five paths is unchanged, and each was re-run by hand after the last commit.
 
 ## What is real, what is simulated
 
