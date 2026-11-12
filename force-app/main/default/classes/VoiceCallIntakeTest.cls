@@ -29,6 +29,6 @@ private class VoiceCallIntakeTest {
         Case c = [SELECT Station_ID__c, Routing_Decision__c
                   FROM Case WHERE CaseNumber = :out[0].caseNumber];
         System.assertEquals(null, c.Station_ID__c);
-        System.assertEquals('FIRE / DEFAULT', c.Routing_Decision__c);
+        System.assertEquals('FIRE / DEFAULT / fallback', c.Routing_Decision__c);
     }
 }

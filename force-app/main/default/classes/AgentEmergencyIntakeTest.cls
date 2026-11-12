@@ -10,6 +10,6 @@ private class AgentEmergencyIntakeTest {
             AgentEmergencyIntake.create(new List<AgentEmergencyIntake.Request>{ r });
 
         Case c = [SELECT OwnerId, Routing_Decision__c FROM Case WHERE CaseNumber = :out[0].caseNumber];
-        System.assertEquals('FIRE / MB-03', c.Routing_Decision__c);
+        System.assertEquals('FIRE / MB-03 / exact', c.Routing_Decision__c);
     }
 }

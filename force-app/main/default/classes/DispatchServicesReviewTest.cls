@@ -28,7 +28,7 @@ private class DispatchServicesReviewTest {
         StationResolver.Result r = StationResolver.resolve('+', null);
         Test.stopTest();
 
-        System.assertEquals('UNKNOWN', r.reason, 'a bare + must not match a junk DNIS');
+        System.assertEquals('NO_INPUT', r.reason, 'a bare + must not match a junk DNIS');
     }
 
     @IsTest static void duplicateDnisReportsAmbiguous() {
