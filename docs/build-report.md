@@ -1,4 +1,4 @@
-ï»¿# Campus Emergency Dispatch â€” build report
+# Campus Emergency Dispatch — build report
 
 ## What this is
 
@@ -19,11 +19,11 @@ demonstrated over messaging, not voice. Section 9 is explicit about each gap.
 
 Two entry points, one router:
 
-- **Voice intake** â€” caller DNIS resolves to a station, intent is captured, a score
+- **Voice intake** — caller DNIS resolves to a station, intent is captured, a score
   drives severity, a Case is created.
-- **Silent intake** â€” an alarm carries a station code only. Case created as ASSAULT,
+- **Silent intake** — an alarm carries a station code only. Case created as ASSAULT,
   Anonymous true, Contains PHI false.
-- **Agent intake** â€” free text classified into one of five intents, then the same Case
+- **Agent intake** — free text classified into one of five intents, then the same Case
   creation path.
 
 All three land on `CaseRouterTrigger`, which reads `Routing_Map__mdt` and assigns the
@@ -34,39 +34,39 @@ Routing is data, not code. A queue change is a metadata row edit with no deploym
 ## Component inventory
 
 **Objects and fields**
-- `Campus_Zone__c` â€” zone code, high-crime flag, DTMF flag, active flag
-- `Building__c` â€” building code, floors, zone lookup
-- `Station__c` â€” station class S1â€“S6, DNIS, DTMF code, status, health status, camera
+- `Campus_Zone__c` — zone code, high-crime flag, DTMF flag, active flag
+- `Building__c` — building code, floors, zone lookup
+- `Station__c` — station class S1–S6, DNIS, DTMF code, status, health status, camera
   ID, nearest entrance, zone code, building lookup
-- Case fields â€” Emergency Type, Station ID, Score, Routing Decision, Routed Timestamp,
+- Case fields — Emergency Type, Station ID, Score, Routing Decision, Routed Timestamp,
   Contains PHI, Anonymous
 
 **Routing**
-- `Routing_Map__mdt` â€” eight rows of intent + zone to queue + priority, with a DEFAULT
+- `Routing_Map__mdt` — eight rows of intent + zone to queue + priority, with a DEFAULT
   zone fallback per intent
 
 **Apex**
-- `StationResolver` â€” DNIS or DTMF to station, digit-normalised, flags out of service
-- `ScoringService` â€” intent, injury and asset weights against a threshold
-- `CaseRouter` + `CaseRouterTrigger` â€” after-insert routing, reads the metadata table
-- `VoiceCallIntake`, `SilentAlarmIntake` â€” invocable case creation per entry point
-- `CaseScreenPopController` â€” read-only panel data
-- `AgentEmergencyIntake` â€” invocable for the agent (superseded by a flow, see 8)
+- `StationResolver` — DNIS or DTMF to station, digit-normalised, flags out of service
+- `ScoringService` — intent, injury and asset weights against a threshold
+- `CaseRouter` + `CaseRouterTrigger` — after-insert routing, reads the metadata table
+- `VoiceCallIntake`, `SilentAlarmIntake` — invocable case creation per entry point
+- `CaseScreenPopController` — read-only panel data
+- `AgentEmergencyIntake` — invocable for the agent (superseded by a flow, see 8)
 - Tests: `DispatchServicesTest`, `CaseRouterTest`, `VoiceCallIntakeTest`,
-  `SilentAlarmIntakeTest`, `AgentEmergencyIntakeTest` â€” 10 methods, all passing
+  `SilentAlarmIntakeTest`, `AgentEmergencyIntakeTest` — 10 methods, all passing
 
 **Flows**
-- `Simulated_Call_Intake` (label Voice Call Intake) â€” voice front door
-- `Silent_Trigger_Intake` â€” silent front door
-- `Agent_Create_Case` â€” autolaunched, called by the agent action
-- `Escalate_Unpicked_P0` â€” scheduled path, re-owns an unclaimed P0 after 2 minutes
-- `Route_Case_To_Queue` â€” the original routing flow, now inactive
+- `Simulated_Call_Intake` (label Voice Call Intake) — voice front door
+- `Silent_Trigger_Intake` — silent front door
+- `Agent_Create_Case` — autolaunched, called by the agent action
+- `Escalate_Unpicked_P0` — scheduled path, re-owns an unclaimed P0 after 2 minutes
+- `Route_Case_To_Queue` — the original routing flow, now inactive
 
 **Agent**
-- `Emergency Dispatch` â€” Service Agent, one subagent, GPT-4.1 mini, one flow action
+- `Emergency Dispatch` — Service Agent, one subagent, GPT-4.1 mini, one flow action
 
 **UI**
-- `caseScreenPop` â€” LWC on the Case record page: station, badge, camera tile, decision
+- `caseScreenPop` — LWC on the Case record page: station, badge, camera tile, decision
 
 **Security**
 - `Dispatch Agent Access` permission set: Case create/edit, Station read, Apex class
@@ -81,14 +81,14 @@ resolved. Badge colour, camera blackout and score pill are conditional on data, 
 voice call with no DNIS and a silent alarm on a dead camera look different without any
 branching in the markup.
 
-The whole bundle was authored by hand in a browser-only org with no SFDX CLI â€” no local
+The whole bundle was authored by hand in a browser-only org with no SFDX CLI — no local
 project, no deploy tooling, four files typed into the builder.
 
 ## How routing decides
 
 `CaseRouter` takes the Case intent and the station's zone, looks for an exact
 intent+zone row, falls back to the intent's DEFAULT row, and only then gives up with
-NO ROUTE. Priority comes from the row, never from the score. Score is recorded but does
+NO ROUTE. Priority comes from the row; a score-derived P0 survives only where the row leaves priority blank. Score is recorded but does
 not override the table.
 
 ## Tests
