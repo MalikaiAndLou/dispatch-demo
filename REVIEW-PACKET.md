@@ -16,7 +16,7 @@ Start with `docs/build-report.md`. It has the architecture, the component invent
 decisions and an explicit list of what a production system adds that this doesn't.
 
 Then read `journal/` in numeric order. It is honest. Journal 0011 is two hours lost to a
-17-character queue ID; 0018 is three hours on an agent action that never invoked. 0022 is the self-review pass from 11-12: four SOQL per record, the arithmetic, the fix. The journal is the part that shows how the work actually goes.
+17-character queue ID; 0018 is three hours on an agent action that never invoked. 0022 is the self-review pass from 11-12: four SOQL per record, the arithmetic, the fix, and what it cost to get wrong. The journal is the part that shows how the work actually goes.
 
 ## Recording
 
