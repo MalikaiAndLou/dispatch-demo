@@ -1,8 +1,10 @@
-ï»¿# dispatch-demo
+# dispatch-demo
 
 Proof of concept: campus emergency dispatch triage in Salesforce.
 
-Two entry points â€” simulated voice call and silent alarm â€” plus an Agentforce agent,
+Walkthrough (14 minutes, one take): https://1drv.ms/v/c/b005b7016cab663b/IQC7h3d9hIePQY33Ek4YQhRgAY-iEvIgTAVm4eVKk_gPM3c?e=by3dHl
+
+Two entry points — simulated voice call and silent alarm — plus an Agentforce agent,
 all feeding one metadata-driven routing engine and one dispatcher screen pop.
 
 See `docs/build-report.md` for the architecture, component inventory, decisions and
